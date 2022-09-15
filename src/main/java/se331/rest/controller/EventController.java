@@ -1,5 +1,6 @@
 package se331.rest.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -12,8 +13,6 @@ import org.springframework.web.server.ResponseStatusException;
 import se331.rest.entity.Event;
 import se331.rest.service.EventService;
 
-import javax.annotation.PostConstruct;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -31,7 +30,7 @@ public class EventController {
 
         try {
             output = eventService.getEvents(perPage,page);
-            return new ResponseEntity<>(output,responseHeader,HttpStatus.OK);
+            return new ResponseEntity<>(output,responseHeader, HttpStatus.OK);
         } catch (IndexOutOfBoundsException ex) {
             return new ResponseEntity<>(output,responseHeader,HttpStatus.OK);
         }
